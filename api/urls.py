@@ -9,4 +9,6 @@ router.register(r'books', views.BookListView, basename="book")
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
     path('books/', views.BookListView.as_view()),  # get,post request handle
+    # get,post request handle
+    path('books/<int:pk>/', views.BookListUpdateDelete.as_view()),
 ]
