@@ -56,15 +56,28 @@ from rest_framework import status
 
 # Method-2: concreteapi View
 
-from rest_framework import generics
+# from rest_framework import generics
 
 
-class BookListCreateAPIView(generics.ListCreateAPIView):  # get and post request
-    queryset = BookStoreModel.objects.all()
-    serializer_class = BookStoreSerializer
+# class BookListCreateAPIView(generics.ListCreateAPIView):  # get and post request
+#     queryset = BookStoreModel.objects.all()
+#     serializer_class = BookStoreSerializer
 
 
 # update and delete and single element access
-class BookRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+# class BookRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = BookStoreModel.objects.all()
+#     serializer_class = BookStoreSerializer
+
+
+# Method-3: shortcut/ Model view
+
+from rest_framework import viewsets
+
+
+class BookViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list` and `retrieve` actions.
+    """
     queryset = BookStoreModel.objects.all()
     serializer_class = BookStoreSerializer
